@@ -1,32 +1,31 @@
-module.exports.people = [
-    {
-      id: 3412,
-      name: 'Sarah Taylor',
-      username: 'sarah.taylor3',
-      age: 54
+/* jshint indent: 2 */
+
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('user', {
+    username: {
+      type: DataTypes.STRING(40),
+      allowNull: false,
+      primaryKey: true
     },
-    {
-      id: 5329,
-      name: 'Clara Tabby',
-      username: 'clara.tabby44',
-      age: 28
+    password: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+      primaryKey: true
     },
-    {
-      id: 9384,
-      name: 'Trent Anderson',
-      username: 'anderson_trent93',
-      age: 31
+    emailAddress: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+      unique: true
     },
-    {
-      id: 2930,
-      name: 'Jeremy Hudson',
-      username: 'jerbear22',
-      age: 44
+    firstName: {
+      type: DataTypes.STRING(45),
+      allowNull: false
     },
-    {
-      id: 5723,
-      name: 'David Marling',
-      username: 'dave.mar.ling',
-      age: 23
+    lastName: {
+      type: DataTypes.STRING(45),
+      allowNull: true
     }
-  ];
+  }, {
+    tableName: 'user'
+  });
+};
